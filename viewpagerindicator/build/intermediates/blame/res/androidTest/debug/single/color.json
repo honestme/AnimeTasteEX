@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "D:\\AndroidProjects\\AnimeTasteEX\\viewpagerindicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__dark_theme.xml",
+        "source": "D:\\AndroidProjects\\AnimeTasteEX\\viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AnimeTasteEX\\viewpagerindicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__light_theme.xml",
+        "source": "D:\\AndroidProjects\\AnimeTasteEX\\viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__light_theme.xml"
+    },
+    {
+        "merged": "D:\\cocos-projects\\AndroidProjects\\AndroidSamples\\AnimeTasteEX\\viewpagerindicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__dark_theme.xml",
+        "source": "D:\\cocos-projects\\AndroidProjects\\AndroidSamples\\AnimeTasteEX\\viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__dark_theme.xml"
+    },
+    {
+        "merged": "D:\\cocos-projects\\AndroidProjects\\AndroidSamples\\AnimeTasteEX\\viewpagerindicator\\build\\intermediates\\res\\merged\\androidTest\\debug\\color\\vpi__light_theme.xml",
+        "source": "D:\\cocos-projects\\AndroidProjects\\AndroidSamples\\AnimeTasteEX\\viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\color\\vpi__light_theme.xml"
+    }
+]
