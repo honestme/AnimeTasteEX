@@ -3,7 +3,7 @@ package com.honestme.animetasteex;
 /**
  * Created by zhangconglin on 2016/1/15.
  */
-public class AMZItem  {
+public class AMZListItem {
     private int mId;
     private String mImageUrl;
     private String mLink;

@@ -171,8 +171,8 @@ public class ATEApiUtil {
     }
 
 
-    public static List<ATEItem> getDataFromUriMain(int type,int page){
-        List<ATEItem> itemList = new ArrayList<ATEItem>();
+    public static List<ATEListItem> getDataFromUriMain(int type,int page){
+        List<ATEListItem> itemList = new ArrayList<ATEListItem>();
 
 
         String formatUrl = getFormatUri(type, page);
@@ -185,7 +185,7 @@ public class ATEApiUtil {
 
 
             for(int i = 0; i < elements.size();++i){
-                ATEItem item = new ATEItem();
+                ATEListItem item = new ATEListItem();
                 Element elementItem = elements.get(i);
                 Element element = elementItem.select("post").get(0);
                 Element elementViewTimes = element.select(".post-viewed").get(0);
@@ -221,8 +221,11 @@ public class ATEApiUtil {
     }
 
 
-    public static List<AMZItem> getDataFromUriAMZ(int type,int page){
-        List<AMZItem> itemList = new ArrayList<>();
+
+
+
+    public static List<AMZListItem> getDataFromUriAMZ(int type,int page){
+        List<AMZListItem> itemList = new ArrayList<>();
 
         String formatUrl = getFormatUrlAMZ(type, page);
 
@@ -233,7 +236,7 @@ public class ATEApiUtil {
             Elements elements = document.select(".video-card");
 
             for(int i = 0;i<elements.size();++i){
-                AMZItem item = new AMZItem();
+                AMZListItem item = new AMZListItem();
 
 
                 Element elementThumb = elements.select(".thumb").get(0);
@@ -285,8 +288,8 @@ public class ATEApiUtil {
     }
 
 
-    public static List<ATEItem> getDataFromUriMainOrigin(int type,int page){
-        List<ATEItem> itemList = new ArrayList<ATEItem>();
+    public static List<ATEListItem> getDataFromUriMainOrigin(int type,int page){
+        List<ATEListItem> itemList = new ArrayList<ATEListItem>();
 
 
         String formatUrl = getFormatUri(type, page);
@@ -299,7 +302,7 @@ public class ATEApiUtil {
             Elements elementsAMZ= document.select(".post.amz-post");
 
             for(int i = 0; i < elements.size();++i){
-                ATEItem item = new ATEItem();
+                ATEListItem item = new ATEListItem();
                 Element element = elements.get(i);
                 Element elementViewTimes = element.select(".post-viewed").get(0);
                 String viewTimes = elementViewTimes.text();
@@ -341,4 +344,38 @@ public class ATEApiUtil {
         return itemList;
     }
 
-}
+    public static InterviewItemDetail interviewDetail(String urlStr){
+
+        InterviewItemDetail item = new InterviewItemDetail();
+
+        try {
+
+            String htmlStr = getHtmlFromUrl(urlStr);
+            Document document = Jsoup.parse(htmlStr);
+
+            Element element = document.select("div.post").get(0);
+
+            Element elementTitle = element.select(".post-title").get(0);
+            String title = elementTitle.text();
+            String animeLink = elementTitle.attr("href");
+            item.setTitle(title);
+            item.setAnimeLink(animeLink);
+
+            Element elementAuthor = element.select(".post-author").get(0);
+            String author = elementAuthor.text();
+            String authorLink = elementAuthor.attr("href");
+
+            Element elementContent = element.select(".in-post-content").get(0);
+            Elements elementsInterview = elementContent.select("a");
+
+            for (int i = 0; i < elementsInterview.size(); ++i) {
+
+            }
+
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    return item;
+
+}}

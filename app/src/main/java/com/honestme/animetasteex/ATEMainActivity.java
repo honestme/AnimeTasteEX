@@ -33,6 +33,7 @@ public class ATEMainActivity extends AppCompatActivity implements ViewPager.OnPa
             public void run() {
                 ATEApiTest test = new ATEApiTest();
                 test.createTestMain(ATEApiUtil.ATE_MAIN, 2);
+                test.createTestAMZ(ATEApiUtil.ATE_AMZ_CATEGORY_ADVERTISE,2 );
             }
         }).start();
 

@@ -3,7 +3,7 @@ package com.honestme.animetasteex;
 /**
  * Created by zhangconglin on 2016/1/11.
  */
-public class ATEItem {
+public class ATEListItem {
     private int mId;
     private int mPage;
     private String mTitle;
