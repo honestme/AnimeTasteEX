@@ -1,4 +1,4 @@
-package com.honestme.animetasteex;
+package com.honestme.animetasteex.main.primary;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,17 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.honestme.animetasteex.ATEListItem;
+import com.honestme.animetasteex.R;
+
+import java.util.List;
+
 /**
  * Created by zhangconglin on 2016/1/11.
  */
-public class ATEMainFragment extends android.support.v4.app.Fragment{
+public class PrimaryFragment extends android.support.v4.app.Fragment implements PrimaryPresenter.PrimaryUi{
 
     private int mSubjectType;
     private ListView mListView;
 
 
 
-    public ATEMainFragment() {
+    public PrimaryFragment() {
         super();
     }
 
@@ -38,6 +43,17 @@ public class ATEMainFragment extends android.support.v4.app.Fragment{
 
     @Override
     public void onDestroy() {
+
         super.onDestroy();
+    }
+
+    @Override
+    public void setCollection(List<ATEListItem> collection) {
+
+    }
+
+    @Override
+    public void setCallBack(PrimaryPresenter.PrimaryUiCallBacks callbacks) {
+
     }
 }

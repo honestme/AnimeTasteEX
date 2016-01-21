@@ -1,122 +1,176 @@
 package com.honestme.animetasteex;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+
 /**
  * Created by zhangconglin on 2016/1/11.
  */
-public class ATEListItem {
+@Table(name = "MainListItem")
+public class ATEListItem extends Model implements Parcelable {
+    @Column(name = "id")
     private int mId;
+    @Column(name = "type")
+    private int mType;
+    @Column(name = "page")
     private int mPage;
+    @Column(name = "title")
     private String mTitle;
+    @Column(name = "content")
     private String mContent;
+    @Column(name = "contentLink")
     private String mContentLink;
-    private String mAnimeContent;
-    private String mAnimeLink;
+    @Column(name = "imageUrl")
     private String mImageUrl;
-    private String mAnimeImageUrl;
+    @Column(name = "viewTimes")
     private String mViewTimes;
+    @Column(name = "author")
     private String mAuthor;
+    @Column(name = "animeTitle")
     private String mAnimeTitle;
 
-    public String getmAnimeTitle() {
-        return mAnimeTitle;
+
+
+
+    public void setId(int id) {
+        mId = id;
     }
 
-    public void setmAnimeTitle(String mAnimeTitle) {
-        this.mAnimeTitle = mAnimeTitle;
-    }
-
-    public String getmViewTimes() {
-        return mViewTimes;
-    }
-
-    public void setmViewTimes(String mViewTimes) {
-        this.mViewTimes = mViewTimes;
-    }
-
-    public String getmAuthor() {
-        return mAuthor;
-    }
-
-    public void setmAuthor(String mAuthor) {
-        this.mAuthor = mAuthor;
-    }
 
     public int getmId() {
         return mId;
     }
 
-    public void setmId(int mId) {
-        this.mId = mId;
+    public int getType() {
+        return mType;
     }
 
-    public int getmPage() {
+    public void setType(int type) {
+        mType = type;
+    }
+
+    public int getPage() {
         return mPage;
     }
 
-    public void setmPage(int mPage) {
-        this.mPage = mPage;
+    public void setPage(int page) {
+        mPage = page;
     }
 
-    public String getmTitle() {
+    public String getTitle() {
         return mTitle;
     }
 
-    public void setmTitle(String mTitle) {
-        this.mTitle = mTitle;
+    public void setTitle(String title) {
+        mTitle = title;
     }
 
-    public String getmContent() {
+    public String getContent() {
         return mContent;
     }
 
-    public void setmContent(String mContent) {
-        this.mContent = mContent;
+    public void setContent(String content) {
+        mContent = content;
     }
 
-    public String getmContentLink() {
+    public String getContentLink() {
         return mContentLink;
     }
 
-    public void setmContentLink(String mContentLink) {
-        this.mContentLink = mContentLink;
+    public void setContentLink(String contentLink) {
+        mContentLink = contentLink;
     }
 
-    public String getmAnimeContent() {
-        return mAnimeContent;
-    }
-
-    public void setmAnimeContent(String mAnimeContent) {
-        this.mAnimeContent = mAnimeContent;
-    }
-
-    public String getmAnimeLink() {
-        return mAnimeLink;
-    }
-
-    public void setmAnimeLink(String mAnimeLink) {
-        this.mAnimeLink = mAnimeLink;
-    }
-
-    public String getmImageUrl() {
+    public String getImageUrl() {
         return mImageUrl;
     }
 
-    public void setmImageUrl(String mImageUrl) {
-        this.mImageUrl = mImageUrl;
+    public void setImageUrl(String imageUrl) {
+        mImageUrl = imageUrl;
     }
 
-    public String getmAnimeImageUrl() {
-        return mAnimeImageUrl;
+    public String getViewTimes() {
+        return mViewTimes;
     }
 
-    public void setmAnimeImageUrl(String mAnimeImageUrl) {
-        this.mAnimeImageUrl = mAnimeImageUrl;
+    public void setViewTimes(String viewTimes) {
+        mViewTimes = viewTimes;
+    }
+
+    public String getAuthor() {
+        return mAuthor;
+    }
+
+    public void setAuthor(String author) {
+        mAuthor = author;
+    }
+
+    public String getAnimeTitle() {
+        return mAnimeTitle;
+    }
+
+    public void setAnimeTitle(String animeTitle) {
+        mAnimeTitle = animeTitle;
     }
 
     @Override
     public String toString() {
         return "title:"+mTitle + ",content:" + mContent + ",contentlink:" + mContentLink +
-                ",viewTimes:" + mViewTimes + ",author:"+ mAuthor + ",animetitle:" + mAnimeTitle+
-                ",animecontent:"+mAnimeContent + ",animelink"+mAnimeLink;
+                ",viewTimes:" + mViewTimes + ",author:"+ mAuthor + ",animetitle:" + mAnimeTitle
+                ;
     }
+
+    public ATEListItem() {
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.mId);
+       dest.writeInt(this.mType);
+        dest.writeInt(this.mPage);
+        dest.writeString(this.mTitle);
+        dest.writeString(this.mContent);
+        dest.writeString(this.mContentLink);
+
+        dest.writeString(this.mImageUrl);
+
+        dest.writeString(this.mViewTimes);
+        dest.writeString(this.mAuthor);
+        dest.writeString(this.mAnimeTitle);
+    }
+
+    protected ATEListItem(Parcel in) {
+        this.mId = in.readInt();
+        this.mType = in.readInt();
+        this.mPage = in.readInt();
+        this.mTitle = in.readString();
+        this.mContent = in.readString();
+        this.mContentLink = in.readString();
+
+
+        this.mImageUrl = in.readString();
+
+        this.mViewTimes = in.readString();
+        this.mAuthor = in.readString();
+        this.mAnimeTitle = in.readString();
+    }
+
+    public static final Creator<ATEListItem> CREATOR = new Creator<ATEListItem>() {
+        public ATEListItem createFromParcel(Parcel source) {
+            return new ATEListItem(source);
+        }
+
+        public ATEListItem[] newArray(int size) {
+            return new ATEListItem[size];
+        }
+    };
 }

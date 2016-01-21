@@ -26,5 +26,5 @@
         android:id="@+id/app_anime_taste_extra_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.honestme.animetasteex.ATEMainFragment"></fragment>
+        android:name="com.honestme.animetasteex.main.primary.PrimaryFragment"></fragment>
 </LinearLayout>

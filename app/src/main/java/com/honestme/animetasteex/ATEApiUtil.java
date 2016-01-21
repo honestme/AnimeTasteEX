@@ -171,8 +171,8 @@ public class ATEApiUtil {
     }
 
 
-    public static List<ATEListItem> getDataFromUriMain(int type,int page){
-        List<ATEListItem> itemList = new ArrayList<ATEListItem>();
+    public static ArrayList<ATEListItem> getDataFromUriMain(int type,int page){
+        ArrayList<ATEListItem> itemList = new ArrayList<ATEListItem>();
 
 
         String formatUrl = getFormatUri(type, page);
@@ -190,21 +190,23 @@ public class ATEApiUtil {
                 Element element = elementItem.select("post").get(0);
                 Element elementViewTimes = element.select(".post-viewed").get(0);
                 String viewTimes = elementViewTimes.text();
-                item.setmViewTimes(viewTimes);
+                item.setViewTimes(viewTimes);
+
+                item.setType(type);
 
                 Element elementTitle = element.select(".post-title").get(0);
                 String title = elementTitle.text();
                 String contentLink = elementTitle.attr("href");
-                item.setmTitle(title);
-                item.setmContentLink(contentLink);
+                item.setTitle(title);
+                item.setContentLink(contentLink);
 
                 Element elementAuthor = element.select(".post-author").get(0);
                 String author = elementAuthor.text();
-                item.setmAuthor(author);
+                item.setAuthor(author);
 
                 Element elementMain = element.select(".post-main").get(0);
                 String imageUrl = elementMain.select(".post-thumbnail").get(0).attr("src");
-                item.setmImageUrl(imageUrl);
+                item.setImageUrl(imageUrl);
 
 
 
@@ -306,21 +308,21 @@ public class ATEApiUtil {
                 Element element = elements.get(i);
                 Element elementViewTimes = element.select(".post-viewed").get(0);
                 String viewTimes = elementViewTimes.text();
-                item.setmViewTimes(viewTimes);
+                item.setViewTimes(viewTimes);
 
                 Element elementTitle = element.select(".post-title").get(0);
                 String title = elementTitle.text();
                 String contentLink = elementTitle.attr("href");
-                item.setmTitle(title);
-                item.setmContentLink(contentLink);
+                item.setTitle(title);
+                item.setContentLink(contentLink);
 
                 Element elementAuthor = element.select(".post-author").get(0);
                 String author = elementAuthor.text();
-                item.setmAuthor(author);
+                item.setAuthor(author);
 
                 Element elementMain = element.select(".post-main").get(0);
                 String imageUrl = elementMain.select(".post-thumbnail").get(0).attr("src");
-                item.setmImageUrl(imageUrl);
+                item.setImageUrl(imageUrl);
 
                 Element elementAMZ = elementsAMZ.get(i);
                 Element elementContent = elementAMZ.select(".content").get(0);
@@ -329,9 +331,9 @@ public class ATEApiUtil {
                 String animeLink = elementAnimeTitle.attr("href");
                 Element elementAnimeDescription = elementContent.select("description").get(0);
                 String animeContent = elementAnimeDescription.text();
-                item.setmAnimeLink(animeLink);
-                item.setmAnimeContent(animeContent);
-                item.setmAnimeTitle(animeTitle);
+                //item.setAnimeLink(animeLink);
+                //item.setmAnimeContent(animeContent);
+                //item.setmAnimeTitle(animeTitle);
 
                 itemList.add(item);
 

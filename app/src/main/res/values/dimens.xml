@@ -2,4 +2,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--loading-->
+    <dimen name="loading_bottom_text_margin_bottom">17dp</dimen>
+    <dimen name="loading_main_image_margin_bottom">280dp</dimen>
+    
+    
 </resources>

@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.honestme.animetasteex.main.primary.PrimaryFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class ATETabAdapter extends FragmentPagerAdapter {
 
         switch (mSubjects[position]){
             case "主页":
-                ATEMainFragment fragmentMain = new ATEMainFragment();
+                PrimaryFragment fragmentMain = new PrimaryFragment();
                 fragment = fragmentMain;
                 Bundle bundle = new Bundle();
                 bundle.putString("type",mSubjects[position]);
