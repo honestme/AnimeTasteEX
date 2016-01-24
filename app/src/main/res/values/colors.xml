@@ -19,7 +19,7 @@
     <color name="divide_line">#E4E4E4</color>
     <color name="holo_blue">#E4E4E4</color>
     <color name="comment_text_color">#333333</color>
-    <color name="white">#ffffff</color>
+
     <color name="load_more_normal_color">@color/white</color>
     <color name="load_more_press_color">@color/holo_blue</color>
     <!-- Drawer -->

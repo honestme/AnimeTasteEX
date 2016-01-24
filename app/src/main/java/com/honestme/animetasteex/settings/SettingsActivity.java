@@ -3,8 +3,8 @@ package com.honestme.animetasteex.settings;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.honestme.animetasteex.ApplicationDisplay;
 import com.honestme.animetasteex.BaseActivity;
-import com.honestme.animetasteex.BaseDisplay;
 
 public class SettingsActivity extends BaseActivity {
 
@@ -13,14 +13,16 @@ public class SettingsActivity extends BaseActivity {
         return 0;
     }
 
-    @Override
-    protected void handleIntent(Context context, BaseDisplay display) {
 
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    protected void handleIntent(Context context, ApplicationDisplay display) {
 
     }
 }

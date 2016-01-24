@@ -31,28 +31,13 @@ public class PrimaryPresenter extends BaseUiPresenter<PrimaryPresenter.PrimaryUi
         return true;
     }
 
-    @Override
-    protected boolean populateUi() {
-        super.populateUi();
-
-        if(getUi() != null) {
-
-        }
-
-        return true;
-    }
 
     @Override
     protected PrimaryUiCallBacks createUiCallBacks() {
         return mPrimaryUiCallBacks;
     }
 
-    @Override
-    protected boolean onSuspended() {
-        super.onSuspended();
-        mState.unRegisterForEvents(this);
-        return true;
-    }
+
 
     @Subscribe
     public void collectionChange(PrimaryState.CollectionChangedEvent collectionChangedEvent){

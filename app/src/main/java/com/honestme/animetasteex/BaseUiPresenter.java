@@ -20,9 +20,10 @@ public abstract class BaseUiPresenter<U extends BaseUiPresenter.Ui<UC>,UC>
     private U mUi;
     private UC mUiCallbacks;
 
+
     private HostCallbacks mHostCallbacks;
 
-    private  Set<Ui> mUiSet;
+    private  Set<U> mUiSet;
 
     public BaseUiPresenter() {
         mUiCallbacks = createUiCallBacks();
@@ -44,7 +45,7 @@ public abstract class BaseUiPresenter<U extends BaseUiPresenter.Ui<UC>,UC>
 
         if(isInited()){
             onUiAttached(ui);
-            populateUi();
+            populateUi(ui);
         }
     }
 
@@ -52,6 +53,7 @@ public abstract class BaseUiPresenter<U extends BaseUiPresenter.Ui<UC>,UC>
         Preconditions.checkArgument(ui != null,"ui can't be null");
         Preconditions.checkState(mUi == ui, "UI is not attached");
         onUiDetached(ui);
+        mUiSet.remove(ui);
         mUi.setCallBack(null);
         mUi = null;
     }
@@ -65,14 +67,23 @@ public abstract class BaseUiPresenter<U extends BaseUiPresenter.Ui<UC>,UC>
     protected void onUiDetached(U ui){};
 
     protected boolean onInited(){
-        if(mUi == null){
-            populateUi();
-        }
+       if(!mUiSet.isEmpty()){
+           for (U ui:mUiSet){
+               onUiAttached(ui);
+               populateUi(ui);
+           }
+       }
 
         return true;
     }
 
-    protected boolean populateUi(){return true;}
+    protected abstract boolean populateUi(U ui);
+
+    protected  void populateUiset(){
+        for(U ui:mUiSet){
+            populateUi(ui);
+        }
+    }
 
     protected abstract UC createUiCallBacks();
 }

@@ -7,4 +7,5 @@ import com.honestme.animetasteex.BaseState;
  */
 public interface MainState extends BaseState {
 
+    public void setSelectSlideItem(MainPresenter.SlideMenu item);
 }

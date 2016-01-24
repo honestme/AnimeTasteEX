@@ -6,6 +6,7 @@
     <!--loading-->
     <dimen name="loading_bottom_text_margin_bottom">17dp</dimen>
     <dimen name="loading_main_image_margin_bottom">280dp</dimen>
-    
-    
+
+    <!--login-->
+    <dimen name="login_"></dimen>
 </resources>

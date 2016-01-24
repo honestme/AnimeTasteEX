@@ -12,7 +12,6 @@ public class BasePresenter {
         protected ApplicationState mState;
 
         public BasePresenter(){
-            mDisplay = new ApplicationDisplay();
             mState = ApplicationState.getInstance();
         }
 

@@ -3,6 +3,8 @@ package com.honestme.animetasteex;
 import android.graphics.Movie;
 
 import com.honestme.animetasteex.login.LoginState;
+import com.honestme.animetasteex.main.MainPresenter;
+import com.honestme.animetasteex.main.MainState;
 import com.honestme.animetasteex.main.primary.PrimaryState;
 
 import java.util.List;
@@ -10,9 +12,11 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/1/13 0013.
  */
-public class ApplicationState implements PrimaryState,LoginState {
+public class ApplicationState implements MainState,PrimaryState,LoginState {
 
     private static ApplicationState mState;
+
+    private MainPresenter.SlideMenu mMenuItem;
 
     public static ApplicationState getInstance(){
         if(mState == null){
@@ -30,6 +34,11 @@ public class ApplicationState implements PrimaryState,LoginState {
     @Override
     public void setCollection(List<Movie> collection) {
 
+    }
+
+    @Override
+    public void setSelectSlideItem(MainPresenter.SlideMenu item) {
+        mMenuItem = item;
     }
 
     @Override

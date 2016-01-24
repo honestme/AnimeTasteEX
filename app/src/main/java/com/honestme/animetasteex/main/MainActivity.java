@@ -1,6 +1,5 @@
 package com.honestme.animetasteex.main;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.ShareActionProvider;
 
 import com.honestme.animetasteex.ApplicationDisplay;
 import com.honestme.animetasteex.BaseActivity;
-import com.honestme.animetasteex.BaseDisplay;
 import com.honestme.animetasteex.R;
 
 public class MainActivity extends BaseActivity implements MainPresenter.MainUi {
@@ -30,6 +28,9 @@ public class MainActivity extends BaseActivity implements MainPresenter.MainUi {
     @Override
     protected void handleIntent(Context context, ApplicationDisplay display) {
 
+        if(display.hasMainFragment()){
+
+        }
     }
 
     @Override
@@ -39,7 +40,7 @@ public class MainActivity extends BaseActivity implements MainPresenter.MainUi {
 
     @Override
     protected int setLayoutResource() {
-        return R.layout.activity_main;
+        return R.layout.activity_main_other2;
     }
 
 

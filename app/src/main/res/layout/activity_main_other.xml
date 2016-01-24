@@ -32,7 +32,7 @@
 			    android:layout_height="match_parent"
 			    android:fastScrollEnabled="true" />
 	</FrameLayout>
-		<LinearLayout android:id="@+id/drawer" android:orientation="vertical" android:layout_width="@dimen/drawer_width" android:layout_gravity="start" android:layout_height="match_parent" android:background="#303030">
+		<LinearLayout android:id="@+id/drawer" android:orientation="vertical" android:layout_width="match_parent" android:layout_gravity="start" android:layout_height="match_parent" android:background="#303030">
 			<ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
 				<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
 					<ListView
@@ -42,7 +42,7 @@
 							android:divider="@drawable/drawer_item_divider"
 							android:dividerHeight="2dp"
 							android:background="#303030"/>
-					<TextView android:textColor="@color/drawer_text" android:layout_margin="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/category" android:textSize="10sp"/>
+					<TextView android:textColor="@color/drawer_text" android:layout_margin="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="category" android:textSize="10sp"/>
 					<View android:layout_width="match_parent" android:layout_height="3dp" android:background="@color/drawer_divider"/>
 					<ListView
 							android:id="@+id/category_list"
