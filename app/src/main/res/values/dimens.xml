@@ -8,5 +8,7 @@
     <dimen name="loading_main_image_margin_bottom">280dp</dimen>
 
     <!--login-->
-    <dimen name="login_"></dimen>
+    <dimen name="login_user_margin_top">50dp</dimen>
+    <dimen name="login_password_margin_top">10dp</dimen>
+    <dimen name="login_phone_margin_top">10dp</dimen>
 </resources>

@@ -34,14 +34,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.honestme.animetasteex.BaseApplication;
-import com.honestme.animetasteex.R;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.honestme.animetasteex.R;
 
 
 public class LoginFragment extends Fragment implements LoginPresenter.LoginUi, View.OnClickListener,
@@ -57,7 +55,7 @@ public class LoginFragment extends Fragment implements LoginPresenter.LoginUi, V
 
     private RadioGroup mTypeRadioGroup;
     private RadioButton mLoginRadioButton, mCreateRadioButton;
-    private AutoCompleteTextView mEmailAutoComplete;
+    private AutoCompleteTextView mPhoneAutoComplete;
 
     public static LoginFragment create() {
         LoginFragment fragment = new LoginFragment();
@@ -80,11 +78,11 @@ public class LoginFragment extends Fragment implements LoginPresenter.LoginUi, V
         mTypeRadioGroup = (RadioGroup) view.findViewById(R.id.rg_type);
         mTypeRadioGroup.setOnCheckedChangeListener(this);
 
-        mEmailAutoComplete = (AutoCompleteTextView) view.findViewById(R.id.actv_email);
-        mEmailAutoComplete.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        mPhoneAutoComplete = (AutoCompleteTextView) view.findViewById(R.id.login_phone);
+        mPhoneAutoComplete.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                mEmailAutoComplete.showDropDown();
+                mPhoneAutoComplete.showDropDown();
             }
         });
 
@@ -113,27 +111,25 @@ public class LoginFragment extends Fragment implements LoginPresenter.LoginUi, V
         getActivity().setProgressBarIndeterminateVisibility(visible);
     }
 
+
+
+
+
     @Override
     public void showError(LoginPresenter.Error error) {
         switch (error) {
             case BAD_AUTH:
-                mPassword.setError(getString(R.string.login_authorization_error));
+                mPassword.setError(getString(R.string.login_login_failed));
                 break;
-            case BAD_CREATE:
-                mUsername.setError(getString(R.string.create_user_authorization_error));
+            case BAD_REGISTER:
+                mUsername.setError(getString(R.string.login_register_failed));
                 break;
         }
     }
 
-    @Override
-    public boolean isModal() {
-        return false;
-    }
 
-    @Override
-    public void setCallbacks(LoginPresenter.UserUiCallbacks callbacks) {
-        mCallbacks = callbacks;
-    }
+
+
 
     @Override
     public void onClick(View view) {
@@ -161,14 +157,14 @@ public class LoginFragment extends Fragment implements LoginPresenter.LoginUi, V
 
         if (mCallbacks != null) {
             final String username = mUsername.getText().toString().trim();
-            if (!mCallbacks.isUsernameValid(username)) {
+            if (!mCallbacks.isUserEmpty(username)) {
                 mUsername.setError(getString(R.string.login_username_empty));
                 return;
             }
             mUsername.setError(null);
 
             final String password = mPassword.getText().toString().trim();
-            if (!mCallbacks.isPasswordValid(password)) {
+            if (!mCallbacks.isPasswordEmpty(password)) {
                 mPassword.setError(getString(R.string.login_password_empty));
                 return;
             }
@@ -179,53 +175,50 @@ public class LoginFragment extends Fragment implements LoginPresenter.LoginUi, V
                     mCallbacks.login(username, password);
                     break;
                 case R.id.rb_create:
-                    final String email = mEmailAutoComplete.getText().toString().trim();
-                    if (!mCallbacks.isEmailValid(email)) {
-                        mEmailAutoComplete.setError(getString(R.string.login_email_invalid));
+                    final String phone = mPhoneAutoComplete.getText().toString().trim();
+                    if (!mCallbacks.isPhoneEmpty(phone)) {
+                        mPhoneAutoComplete.setError(getString(R.string.login_phone_invalid));
                         return;
                     }
-                    mEmailAutoComplete.setError(null);
+                    mPhoneAutoComplete.setError(null);
 
-                    mCallbacks.createUser(username, password, email);
+                    mCallbacks.createAccount(username, password, phone);
                     break;
             }
         }
     }
 
     LoginPresenter getController() {
-        return BaseApplication.from(getActivity()).getMainController().getLoginPresenter();
+        return new LoginPresenter();
     }
 
-    @Override
-    public void startMain() {
 
-    }
 
     @Override
     public void setCallBack(LoginPresenter.LoginUiCallbacks callbacks) {
-
+        mCallbacks = callbacks;
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch (checkedId) {
             case R.id.rb_login:
-                mLoginButton.setText(R.string.account_login);
-                mEmailAutoComplete.setVisibility(View.GONE);
+                mLoginButton.setText(R.string.login_login);
+                mPhoneAutoComplete.setVisibility(View.GONE);
                 break;
             case R.id.rb_create:
-                mLoginButton.setText(R.string.account_register);
-                mEmailAutoComplete.setVisibility(View.VISIBLE);
+                mLoginButton.setText(R.string.login_register);
+                mPhoneAutoComplete.setVisibility(View.VISIBLE);
 
-                if (mEmailAutoComplete.getAdapter() == null) {
-                    final Set<String> emailSet = new HashSet<>();
+                if (mPhoneAutoComplete.getAdapter() == null) {
+                    final Set<String> phoneSet = new HashSet<>();
                     for (Account account : AccountManager.get(getActivity()).getAccounts()) {
                         if (Patterns.EMAIL_ADDRESS.matcher(account.name).matches()) {
-                            emailSet.add(account.name);
+                            phoneSet.add(account.name);
                         }
                     }
-                    List<String> emails = new ArrayList<>(emailSet);
-                    mEmailAutoComplete.setAdapter(new ArrayAdapter<>(getActivity(),
+                    List<String> emails = new ArrayList<>(phoneSet);
+                    mPhoneAutoComplete.setAdapter(new ArrayAdapter<>(getActivity(),
                             android.R.layout.simple_spinner_dropdown_item, emails));
                 }
                 break;

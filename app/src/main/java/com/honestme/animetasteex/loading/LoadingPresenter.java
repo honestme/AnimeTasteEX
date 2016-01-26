@@ -106,4 +106,8 @@ public class LoadingPresenter extends
         }
     }
 
+    @Override
+    protected boolean populateUi(LoadingUi ui) {
+        return false;
+    }
 }

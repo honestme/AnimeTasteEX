@@ -3,6 +3,7 @@ package com.honestme.animetasteex.main;
 import com.honestme.animetasteex.ApplicationState;
 import com.honestme.animetasteex.BaseUiPresenter;
 import com.honestme.animetasteex.main.interview.InterviewFragment;
+import com.honestme.animetasteex.main.interview.InterviewPresenter;
 import com.honestme.animetasteex.main.primary.PrimaryPresenter;
 import com.honestme.animetasteex.main.weekly.WeeklyPresenter;
 
@@ -14,6 +15,7 @@ public class MainPresenter extends BaseUiPresenter<MainPresenter.MainUi,MainPres
 
     private PrimaryPresenter mPrimaryPresenter;
     private WeeklyPresenter mWeeklyPresenter;
+    private InterviewPresenter mInterviewPresenter;
     private InterviewFragment mInterviewFragment;
 
     private ApplicationState mState;
@@ -36,23 +38,25 @@ public class MainPresenter extends BaseUiPresenter<MainPresenter.MainUi,MainPres
 
     public interface MainUiCallbacks{}
 
-    private PrimaryPresenter moviePresenter;
     private MainUiCallbacks mMainUiCallbacks;
 
     public MainPresenter(){
-        moviePresenter = new PrimaryPresenter();
+        mPrimaryPresenter = new PrimaryPresenter();
+        mWeeklyPresenter = new WeeklyPresenter();
+        mInterviewPresenter = new InterviewPresenter();
+        mState = ApplicationState.getInstance();
 
     }
 
     public ApplicationState getState(){return mState;}
 
-    public PrimaryPresenter getMoviePresenter(){
-        return moviePresenter;
-    }
+    public PrimaryPresenter getPrimaryPresenter(){return  mPrimaryPresenter;}
 
     @Override
     protected boolean onInited() {
-        return moviePresenter.init();
+        return mPrimaryPresenter.init() ||
+                mWeeklyPresenter.init() ||
+                mInterviewPresenter.init();
     }
 
     @Override
@@ -64,7 +68,9 @@ public class MainPresenter extends BaseUiPresenter<MainPresenter.MainUi,MainPres
     @Override
     protected boolean onSuspended() {
 
-        return moviePresenter.suspend();
+        return  mPrimaryPresenter.suspend() ||
+                mWeeklyPresenter.suspend() ||
+                mInterviewPresenter.suspend();
 
     }
 

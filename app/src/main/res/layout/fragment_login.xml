@@ -17,7 +17,7 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:philm="http://schemas.android.com/apk/res-auto"
+              xmlns:honestme="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
@@ -35,25 +35,20 @@
               android:layout_margin="30dp"
               android:animateLayoutChanges="true">
 
-            <com.honestme.animetasteex.FontTextView
-                  android:id="@+id/textview_login_title"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="@string/login_prompt"
-                  android:padding="@dimen/spacing_major"
-                  style="@style/Widget.Philm.Movie.Login.Title" />
+
 
             <com.honestme.animetasteex.FloatLabelLayout
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_marginTop="@dimen/spacing_minor"
-                  philm:floatLabelTextAppearance="@style/TextAppearance.Philm.FloatLabel">
+                  android:layout_marginTop="@dimen/login_user_margin_top"
+                  honestme:floatLabelTextAppearance="@style/TextAppearance.honestme.FloatLabel"
+                  >
 
                 <EditText
                       android:id="@+id/edit_login"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:hint="@string/account_username_hint"
+                      android:hint="@string/login_user_hint"
                       android:maxLines="1"
                       android:singleLine="true"
                       android:inputType="textNoSuggestions"
@@ -65,14 +60,15 @@
             <com.honestme.animetasteex.FloatLabelLayout
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_marginTop="@dimen/spacing_minor"
-                  philm:floatLabelTextAppearance="@style/TextAppearance.Philm.FloatLabel">
+                  android:layout_marginTop="@dimen/login_password_margin_top"
+                  honestme:floatLabelTextAppearance="@style/TextAppearance.honestme.FloatLabel"
+                  >
 
                 <EditText
                       android:id="@+id/edit_password"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:hint="@string/account_password_hint"
+                      android:hint="@string/login_password_hint"
                       android:inputType="textPassword"
                       android:singleLine="true"
                       android:imeOptions="actionDone" />
@@ -82,14 +78,14 @@
             <com.honestme.animetasteex.FloatLabelLayout
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:layout_marginTop="@dimen/spacing_minor"
-                  philm:floatLabelTextAppearance="@style/TextAppearance.Philm.FloatLabel">
+                  android:layout_marginTop="@dimen/login_phone_margin_top"
+                  honestme:floatLabelTextAppearance="@style/TextAppearance.honestme.FloatLabel">
 
                 <AutoCompleteTextView
-                      android:id="@+id/actv_email"
+                      android:id="@+id/login_phone"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:hint="@string/account_email_hint"
+                      android:hint="@string/login_phone"
                       android:inputType="textEmailAddress"
                       android:selectAllOnFocus="true" />
 
@@ -105,13 +101,13 @@
 
                 <RadioButton
                       android:id="@+id/rb_login"
-                      android:text="login"
+                      android:text="@string/login_login"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content" />
 
                 <RadioButton
                       android:id="@+id/rb_create"
-                      android:text="register"
+                      android:text="@string/login_register"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content" />
 
@@ -135,7 +131,7 @@
               android:id="@+id/btn_submit"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:text="@string/account_login"
+              android:text="@string/login_login"
               style="?android:buttonBarButtonStyle" />
 
     </LinearLayout>
