@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.honestme.animetasteex.ATEListItem;
+import com.honestme.animetasteex.MainListItem;
 import com.honestme.animetasteex.R;
 
 import java.util.List;
@@ -48,7 +48,7 @@ public class PrimaryFragment extends android.support.v4.app.Fragment implements 
     }
 
     @Override
-    public void setCollection(List<ATEListItem> collection) {
+    public void setCollection(List<MainListItem> collection) {
 
     }
 

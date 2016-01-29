@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by zhangconglin on 2016/1/11.
  */
-public class ATEApiUtil {
+public class ApiUtil {
     public static final int ATE_MAIN = 0;
     public static final int ATE_INTERVIEW = 1;
     public static final int ATE_WEEKLY_INSPIRATIONS = 2;
@@ -171,8 +171,8 @@ public class ATEApiUtil {
     }
 
 
-    public static ArrayList<ATEListItem> getDataFromUriMain(int type,int page){
-        ArrayList<ATEListItem> itemList = new ArrayList<ATEListItem>();
+    public static ArrayList<MainListItem> getDataFromUriMain(int type,int page){
+        ArrayList<MainListItem> itemList = new ArrayList<MainListItem>();
 
 
         String formatUrl = getFormatUri(type, page);
@@ -185,7 +185,7 @@ public class ATEApiUtil {
 
 
             for(int i = 0; i < elements.size();++i){
-                ATEListItem item = new ATEListItem();
+                MainListItem item = new MainListItem();
                 Element elementItem = elements.get(i);
                 Element element = elementItem.select("post").get(0);
                 Element elementViewTimes = element.select(".post-viewed").get(0);
@@ -290,8 +290,8 @@ public class ATEApiUtil {
     }
 
 
-    public static List<ATEListItem> getDataFromUriMainOrigin(int type,int page){
-        List<ATEListItem> itemList = new ArrayList<ATEListItem>();
+    public static List<MainListItem> getDataFromUriMainOrigin(int type,int page){
+        List<MainListItem> itemList = new ArrayList<MainListItem>();
 
 
         String formatUrl = getFormatUri(type, page);
@@ -304,7 +304,7 @@ public class ATEApiUtil {
             Elements elementsAMZ= document.select(".post.amz-post");
 
             for(int i = 0; i < elements.size();++i){
-                ATEListItem item = new ATEListItem();
+                MainListItem item = new MainListItem();
                 Element element = elements.get(i);
                 Element elementViewTimes = element.select(".post-viewed").get(0);
                 String viewTimes = elementViewTimes.text();

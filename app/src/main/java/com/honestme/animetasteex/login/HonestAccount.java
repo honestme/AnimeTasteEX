@@ -5,11 +5,11 @@ import com.honestme.animetasteex.BaseModel;
 /**
  * Created by Administrator on 2015/12/14 0014.
  */
-public class LoginModel extends BaseModel {
+public class HonestAccount extends BaseModel {
     private String mUserName;
     private String mPassWord;
 
-    public LoginModel(String userName,String passWord){
+    public HonestAccount(String userName, String passWord){
         mUserName = userName;
         mPassWord = passWord;
     }

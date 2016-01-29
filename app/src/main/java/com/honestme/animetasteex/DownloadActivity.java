@@ -7,8 +7,8 @@ import android.os.Bundle;
 /**
  * Created by zhangconglin on 2016/1/21.
  */
-public class ATEDownloadActivity extends Activity {
-    private Context mContext = ATEDownloadActivity.this;
+public class DownloadActivity extends Activity {
+    private Context mContext = DownloadActivity.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

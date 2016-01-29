@@ -51,7 +51,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseUiPr
     @Override
     protected void onResume() {
         super.onResume();
-        mPresenter.populateUi();
+        mPresenter.populateUi(mPresenter.getUi());
         mPresenter.setHostCallbacks(this);
     }
 

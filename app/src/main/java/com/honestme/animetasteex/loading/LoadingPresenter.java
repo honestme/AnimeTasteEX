@@ -6,8 +6,8 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.activeandroid.ActiveAndroid;
-import com.honestme.animetasteex.ATEApiUtil;
-import com.honestme.animetasteex.ATEListItem;
+import com.honestme.animetasteex.ApiUtil;
+import com.honestme.animetasteex.MainListItem;
 import com.honestme.animetasteex.BaseUiPresenter;
 
 import java.util.ArrayList;
@@ -75,9 +75,9 @@ public class LoadingPresenter extends
 
             try {
                 ActiveAndroid.beginTransaction();
-                ArrayList<ATEListItem> listItemsMain = ATEApiUtil.getDataFromUriMain(ATEApiUtil.ATE_MAIN, 1);
-                ArrayList<ATEListItem> listItemsInterview = ATEApiUtil.getDataFromUriMain(ATEApiUtil.ATE_INTERVIEW, 1);
-                ArrayList<ATEListItem> listItemsWeekly = ATEApiUtil.getDataFromUriMain(ATEApiUtil.ATE_WEEKLY_INSPIRATIONS, 1);
+                ArrayList<MainListItem> listItemsMain = ApiUtil.getDataFromUriMain(ApiUtil.ATE_MAIN, 1);
+                ArrayList<MainListItem> listItemsInterview = ApiUtil.getDataFromUriMain(ApiUtil.ATE_INTERVIEW, 1);
+                ArrayList<MainListItem> listItemsWeekly = ApiUtil.getDataFromUriMain(ApiUtil.ATE_WEEKLY_INSPIRATIONS, 1);
 
                 for (int i = 0; i < listItemsMain.size(); i++) {
                     listItemsMain.get(i).save();

@@ -11,7 +11,7 @@ import com.activeandroid.annotation.Table;
  * Created by zhangconglin on 2016/1/11.
  */
 @Table(name = "MainListItem")
-public class ATEListItem extends Model implements Parcelable {
+public class MainListItem extends Model implements Parcelable {
     @Column(name = "id")
     private int mId;
     @Column(name = "type")
@@ -124,7 +124,7 @@ public class ATEListItem extends Model implements Parcelable {
                 ;
     }
 
-    public ATEListItem() {
+    public MainListItem() {
     }
 
     @Override
@@ -148,7 +148,7 @@ public class ATEListItem extends Model implements Parcelable {
         dest.writeString(this.mAnimeTitle);
     }
 
-    protected ATEListItem(Parcel in) {
+    protected MainListItem(Parcel in) {
         this.mId = in.readInt();
         this.mType = in.readInt();
         this.mPage = in.readInt();
@@ -164,13 +164,13 @@ public class ATEListItem extends Model implements Parcelable {
         this.mAnimeTitle = in.readString();
     }
 
-    public static final Creator<ATEListItem> CREATOR = new Creator<ATEListItem>() {
-        public ATEListItem createFromParcel(Parcel source) {
-            return new ATEListItem(source);
+    public static final Creator<MainListItem> CREATOR = new Creator<MainListItem>() {
+        public MainListItem createFromParcel(Parcel source) {
+            return new MainListItem(source);
         }
 
-        public ATEListItem[] newArray(int size) {
-            return new ATEListItem[size];
+        public MainListItem[] newArray(int size) {
+            return new MainListItem[size];
         }
     };
 }

@@ -1,16 +1,7 @@
 package com.honestme.animetasteex.login;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
-
-import com.activeandroid.ActiveAndroid;
-
-import com.honestme.animetasteex.ATEApiUtil;
-import com.honestme.animetasteex.ATEListItem;
 import com.honestme.animetasteex.BaseUiPresenter;
 import com.honestme.animetasteex.util.TextUtil;
-
-import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2015/11/30 0030.

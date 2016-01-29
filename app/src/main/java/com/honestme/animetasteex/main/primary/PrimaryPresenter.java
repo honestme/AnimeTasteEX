@@ -3,7 +3,7 @@ package com.honestme.animetasteex.main.primary;
 
 
 import com.google.common.eventbus.Subscribe;
-import com.honestme.animetasteex.ATEListItem;
+import com.honestme.animetasteex.MainListItem;
 import com.honestme.animetasteex.BaseUiPresenter;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 public class PrimaryPresenter extends BaseUiPresenter<PrimaryPresenter.PrimaryUi,PrimaryPresenter.PrimaryUiCallBacks> {
 
     public interface PrimaryUi extends BaseUiPresenter.Ui<PrimaryUiCallBacks>{
-        void setCollection(List<ATEListItem> collection);
+        void setCollection(List<MainListItem> collection);
     }
 
     public interface PrimaryUiCallBacks {}
